@@ -2,6 +2,10 @@ USER: SESA-005-M
 PW: 3fGsPLvqbwPTrtU
 HOSTMACHINE 14 : 10.50.23.41
 
+Linux OPStation Float IP: 10.50.32.253  IP: 192.168.65.10
+
+Windows OPStation Float IP: 10.50.38.37 IP: 192.168.65.20
+
 DAY 1 ### PENETRATION TESTING ###
 Types of PEN TESTING
 Blackhat Penetration test
