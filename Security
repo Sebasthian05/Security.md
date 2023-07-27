@@ -1,0 +1,114 @@
+DAY 1 ### PENETRATION TESTING ###
+Types of PEN TESTING
+Blackhat Penetration test
+- No information
+Whitehat Penetration test
+- Start off with some information 
+
+Penetration Test Reporting
+Mission Definition (Phase 1)
+- Define mission goals and targets
+- Determine scope of mission (What is the purpose for this mission)
+- Define RoE (Proper Engagement on targets/Legal lol)
+
+Recon (Phase 2)
+- Information gathering about the target through public sources
+- Phishing attempts ( Unit/Company employers) 
+
+Footprinting (Phase 3)
+- Accumlate data through scanning and/or interaction with the target/target resources
+- Scanning to see what hosts are up
+- Nmap scans 
+
+Exploitation and Inital Access (Phase 4)
+- Gain an inital foothold on network
+- check if port is what it says it is
+- check websites for jump into
+
+Post-Exploitation (Phase 5)
+- Establish persistance
+- Escalate privileges
+- Cover your tracks
+- Exfiltrate target data (PII or Money Investment stuff)
+
+Document Mission (Phase 6)
+Operation Notes
+- To backtrack information you've already covered
+- To make reporting after action reports easier
+- To cover you bases easier with opnotes 
+
+Penetration Test Reporting 
+Executive Summary
+hitting wavetops for CO type. just plan of action
+Technical Summary
+for SME who are on the team for the mission, What we need to do 
+
+Penetration Test Reporting
+Reasons to report
+- let your employer in the loop of their networks 
+What to report
+- Malware or anything suspicious/
+Screen captures
+- Make sure opnotes are easy to read to pass onto next shift
+
+Scanning and Reconnisance
+Documentation
+- Important for informing teammates, Tracking What you did
+Collection and Use
+- Collect anything that can be used 
+Limitations and Collections
+- Listen to ROE and lateral limits/legal team 
+
+
+Data to Collect
+Web Data
+- Cached Content, Analytics
+Sensitive Data
+- Business Data, Profiles, Business Filings 
+Publicly Accessible
+Physical Addresses, Phone Numbers, Email Address, User Names, Search Engine Data, Web and Traffic Cameras, Wireless Access Point Data
+Social Media
+Twitter, Facebok, Instagram, People Searches, Registry and Wish List
+Domain And IP Data
+DNS Registration, IP Address Assignments, Geolocation Data, Whois
+
+HTML Demo 
+
+Advanced Scanning Techniques Demos 
+
+Script Management
+located in /usr/share/nmap/scripts
+
+Google "Hack"
+site:marines.mil
+- Shows only websites with marines.mil
+site:marines.mil <keyword>
+site:marines.mil filetype:pdf "<Keyword>"
+
+Vulnerability and Exploitation Research
+- Transition from Recon to Weaponization
+Research
+- Open Source 
+- See what available plan of action you have
+Capabilities
+- Mission Objectives drive requirements
+   o Collection
+   o Effects
+- Additional functionality to fufill requirements 
+- COMSEC (Make sure you are securing tech and communication between teams)
+Testing
+- Test in a sandbox environment
+Plan
+- Procure Hardware and Software
+- Assign developer
+- Assign a tester to develop TTPs and break it
+- Document testing results
+- testing environment
+
+Wbsite to use for activities 
+exploit-db.com
+virustotal
+-Don't Trust too much into it
+
+
+
