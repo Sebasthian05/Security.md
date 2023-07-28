@@ -119,4 +119,79 @@ virustotal
 -Don't Trust too much into it
 
 
+DAY 2 and 3 ### WEB EXPLOITATION ###
+Server/Client Relationship
+- Server provides services 
+- Client requests services 
+- a Server can also be a client
+
+HTTP Protocol
+GET / Recieves information
+POST / Sends information to web server
+HEAD /
+PUT /
+
+HTTP Response Codes
+10X == Informational
+2XX == Success 
+30X == Redirection
+4XX == Client Error
+5XX == Server Error
+
+HTTP Packet Headers 
+F12 and use the network tab 
+HTTP Fields
+- User-Agent
+- Referer 
+- Cookie
+- Date
+- Server 
+- Set-Cookie
+
+Wget
+- Recursively download
+- Recover from broken transfers
+- SSL/TLS support
+cURL
+- Non recursive
+- Can use pipes
+- Upload ability
+- Supports more protocols vs wget, such as scp and POP3
+
+HTML is a framework for a website
+
+JavaScript is able to change features on website
+
+Enumeration 
+robots.txt
+
+nmap -v -sT -T5 --script http.enum.nse 10.50.31.75 shows (if robots.txt exist in website, also enumerates directories to find interesting events)
+
+sudo apt install nikto -y (to get nikto)
+nikto -h 10.50.31.75 **** Gives us information faster than other enumeration tools
+
+Cross-Site Scripting
+Client goes to trusted website, but website is compromised from JavaScript and since the client "trust" the website, the JavaScript can run on Client
+Reflected XSS 
+Is on the URL and is encoded with base64 or illegal URL characters
+Stored XSS
+Is in the server of the website, If client logs in exectuable will run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
