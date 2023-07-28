@@ -118,6 +118,12 @@ exploit-db.com
 virustotal
 -Don't Trust too much into it
 
+for i in {96..128}; do proxychains nc -nvzw1 192.168.NetID.$i 22 53 80 135 137 139 445 2>&1 | grep OK | grep -Eo "192.168.NetID.:[0-9]" ;done
+
+for i in {224..255}; do proxychainsnc -nvzwl 192.168.150.$i 1-1024 2>&1 | grep OK | grep -Eo "192.168.150.:[0-9]";done
+
+
+
 
 DAY 2 and 3 ### WEB EXPLOITATION ###
 Server/Client Relationship
@@ -233,3 +239,21 @@ echo ssh onto authorized keys
 echo "key" >> /var/www/.ssh/authorized_keys
 
 try ssh process again for test if it doesn't work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
