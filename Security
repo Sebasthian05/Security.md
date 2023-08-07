@@ -3,7 +3,7 @@ PW: 3fGsPLvqbwPTrtU
 HOSTMACHINE 14 : 10.50.23.41
 
 Linux OPStation Float IP: 10.50.32.253  IP: 192.168.65.10
-
+instances, linopd
 Windows OPStation Float IP: 10.50.38.37 IP: 192.168.65.20
 
 DAY 1 ### PENETRATION TESTING ###
@@ -509,4 +509,4 @@ Data Exfiltration
 
 Try pinging to machine if scp doesn't work
 
-
+150.245
