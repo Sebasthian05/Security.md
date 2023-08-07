@@ -225,7 +225,7 @@ upload .php file, navigate back to uploads
 
 gives command shell on the text bar 
 - cat /etc/passwd
-
+whoami dictates where you put the public rsa key in
 
 Command Injection
 Create ssh key
@@ -510,3 +510,24 @@ Data Exfiltration
 Try pinging to machine if scp doesn't work
 
 150.245
+
+
+192.168.150.253 Donovian-Intranet
+proxychains nc 192.168.150.253 3201
+192.168.150.253 port 514 (syslog is open)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
