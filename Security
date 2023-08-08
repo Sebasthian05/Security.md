@@ -511,6 +511,7 @@ Try pinging to machine if scp doesn't work
 
 150.245
 
+www-data@extranet:~$ ssh -i .ssh/id_rsa comrade@192.168.150.253 -p 3201
 
 192.168.150.253 Donovian-Intranet
 proxychains nc 192.168.150.253 3201
