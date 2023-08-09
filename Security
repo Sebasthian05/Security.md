@@ -610,11 +610,13 @@ Important Microsoft Event IDs
 7045            Service created
 
 DAY 7 ### PRIVILEGE ESCALATION LINUX ###
+
 Sudo -l 
 Enumerationg For Privilege Escalation
 
 Physical Access = Keys to the kingdom
 
+World-writable Files are in the tmp directory
 SUDO
  https://gtfobins.github.io/
 sudo apt-get changelog apt
@@ -624,19 +626,81 @@ LFILE=file_to_read
 
 SUID/SGID
 find / -type f -perm /4000 -ls 2>/dev/null
--4000 is SUID
+-4000 is SUID Users 
 -2000 is SGID
 -6000 is SUID or SGID 
 
-find . -exec /etc/shadow
+find . -exec cat /etc/shadow
 
+cat crontab
+find / -type f -writable -o -type -d -writable 2>/dev/nulll
 
+Dot '.' in PATH
+echo $PATH
+- shows full paths
 
+Vulnerable Softeare and Services 
+use schtasks /etc/crontabs
+ps aux | grep root
 
+Unpatched Kernel Vulnerabilites 
+uname -a
+cat /proc/version
+dmesg | grep Linux
 
+https://dirtycow.ninja/
 
+Cron Job 
+put any command to run at a certain time for persistance
 
+Kernel Module Backdoors
+you need the right version for the Kernel to run 
 
+Covering Your Tracks
+- Know what logs you leave and which ones to delete
+- Artifacts are also things you leave on the targeted machine 
+- Know the limits of the machine ( how much RAM a machine has compared to what you are asking the machine to do )
+- unset HISTFILE 
+
+ls -latr /proc/1/exe
+stat /sbin/init
+man init
+init --version
+ps 1
+
+Auditing SystemV
+ausearch: Pulls from audit.log
+- ausearch -p 22
+- ausearch -m USER_LOGIN -sv no
+- ausearch -ua edwards -ts yesterday -te now -i
+
+SystemD
+Utilzes journalctl
+- journalctl _TRANSPORT=audit
+- journalctl _TRANSPORT=audit | grep 603
+
+Logs for Covering tracks
+auth.log/secure    Logins/authentications
+lastlog            Each users' last successful login time
+btmp               bad login attempts
+sulog              Usage of SU command
+utmp               Currently logged in users (W command)
+wtmp               Permanent record on user on/off
+
+Cleaning logs 
+
+Timestomp with *NIX
+touch -c -t 201603051015 1.txt   # Explicit
+touch -r 3.txt 1.txt    # Reference
+
+Remote Logging
+rsyslog > config file tells more information
+
+/etc/rsyslog.d/*
+/etc/rsyslog.conf
+
+grep "IncludeConfig" /etc/rsyslog.conf
+<facility>.<Priority>
 
 
 
