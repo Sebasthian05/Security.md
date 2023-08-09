@@ -609,13 +609,26 @@ Important Microsoft Event IDs
 4672            Administrative user logged on
 7045            Service created
 
+DAY 7 ### PRIVILEGE ESCALATION LINUX ###
+Sudo -l 
+Enumerationg For Privilege Escalation
 
+Physical Access = Keys to the kingdom
 
+SUDO
+ https://gtfobins.github.io/
+sudo apt-get changelog apt
 
+LFILE=file_to_read
+./cat "$LFILE"
 
+SUID/SGID
+find / -type f -perm /4000 -ls 2>/dev/null
+-4000 is SUID
+-2000 is SGID
+-6000 is SUID or SGID 
 
-
-
+find . -exec /etc/shadow
 
 
 
