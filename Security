@@ -517,6 +517,41 @@ www-data@extranet:~$ ssh -i .ssh/id_rsa comrade@192.168.150.253 -p 3201
 proxychains nc 192.168.150.253 3201
 192.168.150.253 port 514 (syslog is open)
 
+
+/etc/default/rsyslog
+/etc/init.d/rsyslog
+/etc/logrotate.d/rsyslog
+/etc/logcheck/ignore.d.server/rsyslog
+/usr/share/doc/rsyslog
+/usr/share/lintian/overrides/rsyslog
+/usr/share/rsyslog
+/usr/lib/x86_64-linux-gnu/rsyslog
+/usr/lib/rsyslog
+/var/spool/rsyslog
+
+p /dev/xconsole 0640 root adm
+
+cat: /var/log/syslog: Permission denied
+
+relating to all network items, name resolution
+cat /etc/hosts
+relating to rsyslog or syslog 
+cat /etc/rsyslog.d/50-default.conf 
+relating to securtiy products on linux ( google linux security products )
+cat /etc/rkhunter.conf
+relating to the users on this system.
+cat /etc/shadow
+
+
+comrade::StudentMidwayPassword
+
+
+
+
+
+
+
+
 DAY 6 ### PRIVILIGE ESCALATION ###
 Windows
 Privilige escalation is user, integrity-level elevation is programs with certain privileges
@@ -702,9 +737,9 @@ rsyslog > config file tells more information
 grep "IncludeConfig" /etc/rsyslog.conf
 <facility>.<Priority>
 
+172.16.4.6 from port 31627
 
-
-
+line 601 is the masked
 
 
 
