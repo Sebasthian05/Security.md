@@ -517,21 +517,9 @@ www-data@extranet:~$ ssh -i .ssh/id_rsa comrade@192.168.150.253 -p 3201
 proxychains nc 192.168.150.253 3201
 192.168.150.253 port 514 (syslog is open)
 
+root priv
 
-/etc/default/rsyslog
-/etc/init.d/rsyslog
-/etc/logrotate.d/rsyslog
-/etc/logcheck/ignore.d.server/rsyslog
-/usr/share/doc/rsyslog
-/usr/share/lintian/overrides/rsyslog
-/usr/share/rsyslog
-/usr/lib/x86_64-linux-gnu/rsyslog
-/usr/lib/rsyslog
-/var/spool/rsyslog
 
-p /dev/xconsole 0640 root adm
-
-cat: /var/log/syslog: Permission denied
 
 relating to all network items, name resolution
 cat /etc/hosts
@@ -547,8 +535,8 @@ comrade::StudentMidwayPassword
 
 create a bpf to block tcp track and use a netcat listener with wireshark to find the answer?
 
-
-
+looking for malicious malware you will have to check other users home directory with sudo ls 
+EX sudo ls /root ->
 
 
 
@@ -742,5 +730,6 @@ grep "IncludeConfig" /etc/rsyslog.conf
 line 601 is the masked
 
 
-
+traget box
+10.50.22.50
 
