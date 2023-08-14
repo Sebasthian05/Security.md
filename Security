@@ -851,7 +851,7 @@ FOUND PORTS 3389(RDP), 9999(?)
 xfreerdp /:uLroth /v:localhost:<RHP> /dynamic-resolution +glyph-cache +clipboard
 
 ENUMERATE REGESTRIES ON THE MACHINE 
-HKLM RUNONCE/RUN
+HKLM/HKCU RUNONCE/RUN
 
 SEARCH "SERVICES" ON THE WINDOWS SEARCH BAR
 - Check for empty description to see vulnerable exploits
