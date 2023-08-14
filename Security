@@ -873,7 +873,8 @@ change the IP for the LIN-OPS IP on Gameday for the msfvenom exploit and change 
 
 On Firefox GUI got to setting/ privacy and security/ ccokies and site data, clear data
 
-
+selection=9 UNION SELECT <column>,<column>,<column>,<column> FROM <DATABASE>,<TABLE>
+selection=3 UNION SELECT 1,2,3,@@version
 
 
 
