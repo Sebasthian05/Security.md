@@ -876,7 +876,7 @@ On Firefox GUI got to setting/ privacy and security/ ccokies and site data, clea
 selection=9 UNION SELECT <column>,<column>,<column>,<column> FROM <DATABASE>,<TABLE>
 selection=3 UNION SELECT 1,2,3,@@version
 
-
+http://10.50.40.114/Union.html
 
 
 
