@@ -833,7 +833,7 @@ SETUP SSH TUNNEL TO THE .171 (TRY CREDS FROM THE .181)
 - try all the credentials from the WEB SQL injection
 
 DO ENUMERATION ON THE NEWLY ACCESS MACHINE 
-sudo -l
+sudo -l (gtfobins.com )
 cat /etc/crontabs (be mindful of the directory if run-parts is in crontab)
 find / -type f -perm /4000 -ls 2>/dev/null
 -4000 is SUID Users 
