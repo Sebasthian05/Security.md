@@ -747,6 +747,11 @@ anotherpassword4THEages
 
 
 DRYRUN REVIEW
+
+10.50.23.218
+SESA-005-M
+3fGsPLvqbwPTrtU
+
 For Linux
  for i in {1..254} ;do (ping -c 1 192.168.1.$i | grep "bytes from" &); done
 
